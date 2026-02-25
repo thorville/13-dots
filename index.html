@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>13 dots</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="shortcut icon" href="favicon-32x32.png">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <main class="wrap">
+    <div class="content">
+
+      <!-- Inline SVG so we can control circles with JS -->
+
+      <svg id="dots" class="mark" viewBox="-60 -60 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <g>
+          <circle cx="0.000" cy="0.000" r="4.2"/>
+          <circle cx="-11.059" cy="10.134" r="4.2"/>
+          <circle cx="1.849" cy="-21.132" r="4.2"/>
+          <circle cx="15.816" cy="20.612" r="4.2"/>
+          <circle cx="-29.544" cy="-5.209" r="4.2"/>
+          <circle cx="28.288" cy="-18.022" r="4.2"/>
+          <circle cx="-9.510" cy="35.490" r="4.2"/>
+          <circle cx="-18.325" cy="-35.202" r="4.2"/>
+          <circle cx="39.868" cy="14.511" r="4.2"/>
+          <circle cx="-41.575" cy="17.221" r="4.2"/>
+          <circle cx="-20.047" cy="-52.990" r="4.2"/>
+          <circle cx="14.960" cy="47.447" r="4.2"/>
+          <circle cx="-45.000" cy="-25.981" r="4.2"/>
+        </g>
+      </svg>
+
+      <h1>Keith Tormey</h1>
+      <p class="sub">Dublin, IE</p>
+
+      <p>
+        I’m a designer working at the intersection of people, systems and strategy. 
+        For over 15 years I’ve led design across mental health, online safety, finance and travel, often in environments shaped by policy and real-world constraints. I focus on making complicated things clearer and helping teams build products and services that work in practice.
+      </p>
+
+      <p class="contact">
+        Available for advisory and consulting work. <br>
+      </p>
+
+       
+    
+
+      <nav class="links">
+        <a href="https://www.linkedin.com/in/keithtormey/"><span>Linkedin</span></a>
+        <a href="mailto:tormey13@gmail.com"><span>E-mail</span></a>
+      </nav>
+
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      const svg = document.getElementById("dots");
+      const circles = Array.from(svg.querySelectorAll("circle"));
+    
+      const WHITE = "#161616";
+    
+      const rainbow = [
+        "#FF7272", // red
+        "#FFB672", // orange
+        "#FFEA95", // yellow
+        "#B3FCBC", // green
+        "#88B3F4", // blue
+        "#654FFA", // indigo
+        "#9A6BD3"  // violet
+      ];
+    
+      function setAll(color) {
+        circles.forEach(c => c.setAttribute("fill", color));
+      }
+    
+      function setOneRandom(color) {
+        setAll(WHITE);
+        const idx = Math.floor(Math.random() * circles.length);
+        circles[idx].setAttribute("fill", color);
+      }
+    
+      // Start all white
+      setAll(WHITE);
+    
+      let colorIndex = 0;
+    
+      function startAnimation() {
+    
+        // Initial 1 second white
+        setTimeout(() => {
+    
+          setInterval(() => {
+            const color = rainbow[colorIndex];
+            setOneRandom(color);
+    
+            colorIndex = (colorIndex + 1) % rainbow.length;
+    
+          }, 500);
+    
+        }, 1000);
+      }
+    
+      startAnimation();
+    })();
+    </script>
+</body>
+</html>
