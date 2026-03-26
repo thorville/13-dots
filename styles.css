@@ -117,6 +117,28 @@ a:hover {
   opacity: 1;
 }
 
+.case-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--space-2xl);
+  padding-top: var(--space-xl);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.case-nav a {
+  font-size: var(--font-sm);
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.case-nav a:hover {
+  color: var(--text);
+}
+
+.case-nav-spacer {
+  flex: 1;
+}
+
 /* ─── Case studies list ─────────────────────────────── */
 
 .case-intro {
