@@ -1,103 +1,305 @@
-:root{
-    --bg: #161616;
-    --text: #eaeaea;
-    --muted: #9a9a9a;
-    --link: #eaeaea;
-  }
-  
-  *{ box-sizing: border-box; }
-  html, body{ margin: 0; padding: 0; }
-  
-  body{
-    background: var(--bg);
-    color: var(--text);
-    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-  
-  /* Keep vertical spacing like before */
-  .wrap{
-    padding: 88px 24px;
-  }
-  
-  /* Horizontally center only */
-  .content{
-    max-width: 620px;
-    margin: 0 auto;
-    width: 100%;
-  }
-  
-  .mark{
-    width: 98px;
-    height: 98px;
-    display: block;
-    margin: 0 0 48px 0;
-  }
-  
-  /* Smooth fade between colors */
-  .mark circle{
-    transition: fill 0.18s ease;
-  }
-  
-  h1{
-    font-size: 16px;
-    font-weight: 800;
-    margin: 0 0 0px 0;
-  }
-  
-  .sub{
-    margin: 0 0 22px 0;
-    color: var(--muted);
-    font-size: 16px;
-  }
-  
-  p{
-    margin: 0 0 30px 0;
-    font-size: 16px;
-    max-width: 58ch;
-  }
-  
-  .contact{
-    margin-top: 22px;
-  }
-  
-  .links{
-    font-size: 14px;   /* change this to whatever you want */
-    margin-top: 12px;  /* optional spacing */
-  }
-  /* Links: no underline on the <a> itself */
-.links a{
-    color: var(--link);
-    text-decoration: none;
-  }
-  
-  /* Underline only the text */
-  .links a span{
-    text-decoration-line: underline;
-    text-decoration-thickness: 1px;
-    text-decoration-color: rgba(255,255,255,0.35);
-    text-underline-offset: 2px;
-  }
-  
-  /* Separator */
-  .links a:not(:last-child)::after{
-    content: " · ";
-    opacity: 0.6;
-    text-decoration: none; /* belt + braces */
-  }
-  
-  /* Hover */
-  .links a:hover{
-    opacity: 0.6;
-  }
-  
-  a{
-    color: var(--link);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
-  
-  a:hover{
-    opacity: 0.8;
-  }
+@import url('tokens.css');
+
+* { box-sizing: border-box; }
+strong { font-weight: var(--weight-base); }
+html, body { margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  line-height: var(--leading);
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  padding: var(--space-2xl) var(--page-pad);
+}
+
+.content {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  width: 100%;
+}
+
+.mark {
+  width: 98px;
+  height: 98px;
+  display: block;
+  margin: 0 0 var(--space-xl) 0;
+}
+
+.mark circle {
+  transition: fill 0.18s ease;
+}
+
+h1 {
+  font-size: var(--font-base);
+  font-weight: var(--weight-bold);
+  margin: 0 0 0px 0;
+}
+
+h1 .role {
+  font-weight: var(--weight-base);
+}
+
+.sub {
+  margin: 0 0 32px 0;
+  color: var(--muted);
+  font-size: var(--font-base);
+}
+
+p {
+  margin: 0 0 var(--space-lg) 0;
+  font-size: var(--font-base);
+  max-width: 58ch;
+}
+
+.contact {
+  margin-top: var(--space-md);
+}
+
+.links {
+  font-size: var(--font-sm);
+  margin-top: var(--space-sm);
+}
+
+.links a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+.links a span {
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: rgba(255, 255, 255, 0.35);
+  text-underline-offset: 2px;
+}
+
+.links a:not(:last-child)::after {
+  content: " · ";
+  opacity: 0.6;
+  text-decoration: none;
+}
+
+.links a:hover {
+  opacity: 0.6;
+}
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+/* ─── Inner page shell ──────────────────────────────── */
+
+.wrap-inner {
+  padding-top: var(--space-lg);
+}
+
+/* ─── Back navigation ──────────────────────────────── */
+
+.back-link {
+  display: inline-block;
+  font-size: var(--font-sm);
+  color: var(--muted);
+  text-decoration: none;
+  margin-bottom: var(--space-xl);
+}
+
+.back-link:hover {
+  color: var(--text);
+  opacity: 1;
+}
+
+/* ─── Case studies list ─────────────────────────────── */
+
+.case-intro {
+  margin: var(--space-md) 0 0 0;
+  color: var(--text);
+  max-width: 58ch;
+}
+
+.case-list {
+  margin-top: 32px;
+}
+
+.case-item {
+  display: block;
+  text-decoration: none;
+  margin-bottom: var(--space-md);
+}
+
+.case-item:hover {
+  opacity: 1;
+}
+
+.case-company {
+  font-size: var(--font-base);
+  font-weight: var(--weight-base);
+  color: var(--text);
+  margin: 0 0 4px 0;
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: transparent;
+  text-underline-offset: 2px;
+  transition: text-decoration-color 0.15s ease;
+}
+
+.case-item:hover .case-company {
+  text-decoration-color: rgba(255, 255, 255, 0.35);
+}
+
+.case-tagline {
+  color: var(--muted);
+  font-size: var(--font-base);
+  margin: 0;
+  text-decoration: none;
+}
+
+.case-outcome {
+  color: var(--muted);
+  font-size: var(--font-base);
+  margin: 0 0 var(--space-md) 0;
+}
+
+/* ─── Case study images ─────────────────────────────── */
+
+.case-img {
+  width: 100%;
+  display: block;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-xl);
+}
+
+/* ─── Long-form body copy ───────────────────────────── */
+
+.prose p {
+  color: var(--text-body);
+}
+
+.prose ul {
+  list-style: disc;
+  padding-left: 1.25em;
+  margin: 0 0 var(--space-md) 0;
+}
+
+.prose ul li {
+  color: var(--text-body);
+  padding: 3px 0;
+}
+
+.prose blockquote {
+  border-left: 2px solid var(--muted);
+  margin: var(--space-md) 0;
+  padding: var(--space-sm) var(--space-md);
+}
+
+.prose blockquote p {
+  color: var(--muted);
+  font-style: italic;
+  margin: 0;
+  padding: 2px 0;
+}
+
+/* ─── Case study detail page ────────────────────────── */
+
+.case-lead {
+  color: var(--muted);
+  font-style: italic;
+  margin-bottom: var(--space-xl);
+}
+
+.img-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--bg-surface);
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: var(--font-sm);
+  margin-bottom: var(--space-xl);
+}
+
+/* ─── Outcomes list ─────────────────────────────────── */
+
+.outcomes {
+  margin: var(--space-xl) 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: var(--space-xl);
+}
+
+.outcomes-label {
+  font-size: var(--font-base);
+  font-weight: var(--weight-bold);
+  color: var(--text);
+  margin: 0 0 var(--space-md) 0;
+}
+
+.outcomes-list {
+  list-style: disc;
+  padding-left: 1.1em;
+  margin: 0;
+}
+
+.outcomes-list li {
+  padding: 3px 0;
+  font-size: var(--font-base);
+  color: var(--text-body);
+  max-width: none;
+}
+
+.outcomes-list strong {
+  color: var(--text);
+}
+
+/* ─── Case prev / next navigation ───────────────────── */
+
+.case-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--space-2xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--bg-border);
+  gap: var(--space-lg);
+}
+
+.case-nav-prev,
+.case-nav-next {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-decoration: none;
+  flex: 1;
+}
+
+.case-nav-next {
+  text-align: right;
+  align-items: flex-end;
+}
+
+.case-nav-label {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  opacity: 0.7;
+}
+
+.case-nav-title {
+  font-size: var(--font-sm);
+  color: var(--text);
+}
+
+.case-nav-prev:hover,
+.case-nav-next:hover {
+  opacity: 0.6;
+}

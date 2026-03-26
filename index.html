@@ -8,6 +8,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="shortcut icon" href="favicon-32x32.png">
+  <meta name="robots" content="noindex, nofollow">
   <link rel="stylesheet" href="styles.css" />
 </head>
 
@@ -39,8 +40,11 @@
       <p class="sub">Dublin, IE</p>
 
       <p>
-        I’m a designer working at the intersection of people, systems and strategy. 
-        For over 15 years I’ve led design across mental health, online safety, finance and travel, often in environments shaped by policy and real-world constraints. I focus on making complicated things clearer and helping teams build products and services that work in practice.
+        I&rsquo;m a designer working at the intersection of people, systems and strategy. For over 15 years I&rsquo;ve led design across mental health, online safety, finance and travel, often in environments shaped by policy and real-world constraints. I focus on making complicated things clearer and helping teams build products and services that work in practice.
+      </p>
+
+      <p>
+        Outside of design and research I like making things, from music and small electronics to the occasional over-ambitious baking project. I also enjoy cycling and playing table tennis.
       </p>
 
       <p class="contact">
@@ -51,6 +55,7 @@
     
 
       <nav class="links">
+        <a href="case-studies.html"><span>Case studies</span></a>
         <a href="https://www.linkedin.com/in/keithtormey/"><span>Linkedin</span></a>
         <a href="mailto:tormey13@gmail.com"><span>E-mail</span></a>
       </nav>
@@ -60,54 +65,48 @@
 
   <script>
     (function () {
-      const svg = document.getElementById("dots");
+      const svg    = document.getElementById("dots");
       const circles = Array.from(svg.querySelectorAll("circle"));
-    
-      const WHITE = "#161616";
-    
+      const style  = getComputedStyle(document.documentElement);
+
+      const WHITE = style.getPropertyValue("--bg").trim();
+
       const rainbow = [
-        "#FF7272", // red
-        "#FFB672", // orange
-        "#FFEA95", // yellow
-        "#B3FCBC", // green
-        "#88B3F4", // blue
-        "#654FFA", // indigo
-        "#9A6BD3"  // violet
-      ];
-    
+        "--accent-red",
+        "--accent-orange",
+        "--accent-yellow",
+        "--accent-green",
+        "--accent-blue",
+        "--accent-indigo",
+        "--accent-violet"
+      ].map(t => style.getPropertyValue(t).trim());
+
       function setAll(color) {
         circles.forEach(c => c.setAttribute("fill", color));
       }
-    
+
       function setOneRandom(color) {
         setAll(WHITE);
         const idx = Math.floor(Math.random() * circles.length);
         circles[idx].setAttribute("fill", color);
       }
-    
-      // Start all white
+
       setAll(WHITE);
-    
+
       let colorIndex = 0;
-    
+
       function startAnimation() {
-    
-        // Initial 1 second white
         setTimeout(() => {
-    
           setInterval(() => {
             const color = rainbow[colorIndex];
             setOneRandom(color);
-    
             colorIndex = (colorIndex + 1) % rainbow.length;
-    
           }, 500);
-    
         }, 1000);
       }
-    
+
       startAnimation();
     })();
-    </script>
+  </script>
 </body>
 </html>

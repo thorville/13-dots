@@ -1,0 +1,46 @@
+:root {
+
+  /* ─── Backgrounds ──────────────────────────── */
+  --bg:         #1D1D1D;
+  --bg-surface: #252525;
+  --bg-border:  rgba(255, 255, 255, 0.08);
+
+  /* ─── Text ─────────────────────────────────── */
+  --text:      #EAEAEA;
+  --text-body: #9A9A9A;
+  --muted:     #9A9A9A;
+  --link:      #EAEAEA;
+
+  /* ─── Accent — dot animation ────────────────── */
+  --accent-red:    #FF7272;
+  --accent-orange: #FFB672;
+  --accent-yellow: #FFEA95;
+  --accent-green:  #B3FCBC;
+  --accent-blue:   #88B3F4;
+  --accent-indigo: #654FFA;
+  --accent-violet: #9A6BD3;
+
+  /* ─── Type scale ────────────────────────────── */
+  --font-base:   16px;
+  --font-sm:     14px;
+  --weight-base: 400;
+  --weight-bold: 800;
+  --leading:     1.6;
+
+  /* ─── Spacing scale ─────────────────────────── */
+  --space-xs:  4px;
+  --space-sm:  12px;
+  --space-md:  22px;
+  --space-lg:  30px;
+  --space-xl:  48px;
+  --space-2xl: 88px;
+
+  /* ─── Layout ────────────────────────────────── */
+  --max-w:    620px;
+  --page-pad: 24px;
+
+  /* ─── Radius ────────────────────────────────── */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+
+}
